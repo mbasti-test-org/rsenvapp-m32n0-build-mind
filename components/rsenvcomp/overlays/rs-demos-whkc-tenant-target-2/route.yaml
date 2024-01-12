@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: rsenvcomp
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: rsenvcomp
+    app.kubernetes.io/part-of: rsenvapp
+  name: rsenvcompjhp0
+spec:
+  path: /
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: rsenvcomp
+    weight: null
+status: {}
